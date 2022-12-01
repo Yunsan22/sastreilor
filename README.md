@@ -1,4 +1,4 @@
-# Milestone 1 - MindfulMind
+# Milestone 1 - Sastreilor
 
 ## Table of Contents
 
@@ -38,19 +38,19 @@ Sastreilor will allow tailors all around the world to ditch their notebooks by a
 
 ## Required Features
 
-- [x] **Use four Fragments**
+- [] **Use four Fragments**
 
 
 
-- [x] **User can see Dashboard, customer measurments list,to-do items,a calendar view for the items due, and profile activity**
+- [] **User can see Dashboard, customer measurments list,to-do items,a calendar view for the items due, and profile activity**
 
-- [x] **User can input new measurements using textviews**
+- [] **User can input new measurements using textviews**
 
-- [x] **Use one of the Navigation UI Views (BottomNavigation, Drawer Layout, Top Bar) to navigate between fragments**
+- [] **Use one of the Navigation UI Views (BottomNavigation, Drawer Layout, Top Bar) to navigate between fragments**
 
-- [x] **Users' customers measurments are stored in a database**
+- [] **Users' customers measurments are stored in a database**
 
-- [x] **Users can stay logged in after reopening app**
+- [] **Users can stay logged in after reopening app**
 
 **Stretch Features**
 - [ ] **to be develovep**
