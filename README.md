@@ -116,7 +116,7 @@ Sastreilor will allow tailors all around the world to ditch their notebooks by a
 
 ## Wireframes
 
-<img src="https://i.imgur.com/iC4IXc4.png" width=600>
+<img src="https://ibb.co/prBBXgk" width=600>
 <img src="https://i.imgur.com/NnUYuCL.png" width=600>
 
 
