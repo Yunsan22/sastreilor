@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1051310845705:android:6bf75c649641a7788fedd8",
+        "mobilesdk_app_id": "1:1051310845705:android:fce1f8cc828fa4418fedd8",
         "android_client_info": {
           "package_name": "com.example.sastreilor"
         }
@@ -29,6 +29,13 @@
             {
               "client_id": "1051310845705-cfaqg4thkoss1oaeorrso9gd8j76mag1.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1051310845705-1nt2vuqoo8ppq7tgtiufftsqd1qle32p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yunsan22.sastreilor"
+              }
             }
           ]
         }

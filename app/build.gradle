@@ -1,11 +1,12 @@
 plugins {
+    id 'com.google.gms.google-services'
     id 'kotlin-kapt'
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'org.jetbrains.kotlin.plugin.serialization'
-    id 'com.google.gms.google-services'
+
 }
 
 android {
