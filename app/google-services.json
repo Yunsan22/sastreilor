@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1051310845705",
+    "project_id": "sastreilor",
+    "storage_bucket": "sastreilor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051310845705:android:6bf75c649641a7788fedd8",
+        "android_client_info": {
+          "package_name": "com.example.sastreilor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051310845705-cfaqg4thkoss1oaeorrso9gd8j76mag1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVxthq05sBtNYnqxjkD1l6i_gDGsutPWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1051310845705-cfaqg4thkoss1oaeorrso9gd8j76mag1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
