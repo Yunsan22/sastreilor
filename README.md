@@ -38,19 +38,19 @@ Sastreilor will allow tailors all around the world to ditch their notebooks by a
 
 ## Required Features
 
-- [] **Use four Fragments**
+- [ ] **Use four Fragments**
 
 
 
-- [] **User can see Dashboard, customer measurments list,to-do items,a calendar view for the items due, and profile activity**
+- [ ] **User can see Dashboard, customer measurments list,to-do items,a calendar view for the items due, and profile activity**
 
-- [] **User can input new measurements using textviews**
+- [ ] **User can input new measurements using textviews**
 
-- [] **Use one of the Navigation UI Views (BottomNavigation, Drawer Layout, Top Bar) to navigate between fragments**
+- [ ] **Use one of the Navigation UI Views (BottomNavigation, Drawer Layout, Top Bar) to navigate between fragments**
 
-- [] **Users' customers measurments are stored in a database**
+- [ ] **Users' customers measurments are stored in a database**
 
-- [] **Users can stay logged in after reopening app**
+- [ ] **Users can stay logged in after reopening app**
 
 **Stretch Features**
 - [ ] **to be develovep**
@@ -124,7 +124,7 @@ Sastreilor will allow tailors all around the world to ditch their notebooks by a
 
 ## Interactive Frame
 
-<img src="https://i.imgur.com/FISbIfu.gif"
+<img src="https://i.imgur.com/FISbIfu.gif">
 
 ## Video at current stage
 
