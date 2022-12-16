@@ -42,13 +42,67 @@
         android:id="@+id/LLregister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="left"
         android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/nameTexview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/EmailEditText"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/EmailEditText"
+            app:layout_constraintTop_toBottomOf="@+id/infoTexview" />
+
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_bgwhite"
+            android:drawableLeft="@drawable/ic_baseline_email_black"
+            android:hint=" Name"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+
+            app:layout_constraintTop_toBottomOf="@+id/emailTexview"
+            tools:layout_editor_absoluteX="49dp" />
+        <TextView
+            android:id="@+id/lastnameTexview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Name"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/EmailEditText"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/EmailEditText"
+            app:layout_constraintTop_toBottomOf="@+id/infoTexview" />
+
+        <EditText
+            android:id="@+id/lasnameEditText"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_bgwhite"
+            android:drawableLeft="@drawable/ic_baseline_email_black"
+            android:hint=" Lastname"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+
+            app:layout_constraintTop_toBottomOf="@+id/emailTexview"
+            tools:layout_editor_absoluteX="49dp" />
 
 
 
@@ -67,9 +121,9 @@
         <EditText
             android:id="@+id/EmailEditText"
             android:layout_width="330dp"
-            android:layout_height="32dp"
+            android:layout_height="48dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/btn_bg"
+            android:background="@drawable/btn_bgwhite"
             android:drawableLeft="@drawable/ic_baseline_email_black"
             android:hint=" Email"
             android:paddingLeft="20dp"
@@ -96,9 +150,9 @@
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="331dp"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/btn_bg"
+            android:background="@drawable/btn_bgwhite"
             android:drawableLeft="@drawable/ic_baseline_security_black"
             android:hint=" Password"
             android:paddingLeft="20dp"
@@ -125,9 +179,9 @@
         <EditText
             android:id="@+id/repasswordEditText"
             android:layout_width="331dp"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/btn_bg"
+            android:background="@drawable/btn_bgwhite"
             android:drawableLeft="@drawable/ic_baseline_security_black"
             android:hint=" Confirm Password"
             android:paddingLeft="20dp"
@@ -140,9 +194,9 @@
             app:layout_constraintTop_toBottomOf="@+id/passwordTexview" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/loginBtn"
+            android:id="@+id/registerBtn"
             android:layout_width="325dp"
-            android:layout_height="36dp"
+            android:layout_height="48dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/rectangle_8"
             android:backgroundTint="#B3C7F8"
@@ -151,29 +205,30 @@
             app:layout_constraintStart_toStartOf="@+id/passwordEditText"
             app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
-        <TextView
-            android:id="@+id/haveaccountTexview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Already have an account?"
-            android:textColor="@color/grey"
-            android:textSize="15dp"
-            app:layout_constraintStart_toStartOf="@+id/loginBtn"
-            app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
-
-        <TextView
-            android:id="@+id/signinTexview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign In"
-            android:textColor="@color/white"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/haveaccountTexview"
-            app:layout_constraintEnd_toEndOf="@+id/loginBtn"
-            app:layout_constraintTop_toTopOf="@+id/haveaccountTexview" />
-
     </LinearLayout>
+    <TextView
+        android:id="@+id/haveaccountTexview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Already have an account?"
+        android:textColor="@color/grey"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toStartOf="@id/signinTexview"
+        app:layout_constraintStart_toStartOf="@+id/LLregister"
+        app:layout_constraintTop_toBottomOf="@+id/LLregister" />
+
+    <TextView
+        android:id="@+id/signinTexview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/haveaccountTexview"
+        app:layout_constraintEnd_toEndOf="@+id/LLregister"
+        app:layout_constraintStart_toEndOf="@id/haveaccountTexview"
+        app:layout_constraintTop_toTopOf="@+id/haveaccountTexview" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

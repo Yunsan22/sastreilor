@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_dashboard"
+        android:title="Dashboard"
+        android:icon="@drawable/ic_baseline_dashboard_customize_24"/>
+
+    <item
+        android:id="@+id/nav_measurements"
+        android:title="Measurements"
+        android:icon="@drawable/ic_stat_name"/>
+
+    <item
+        android:id="@+id/nav_Todo"
+        android:title="To Do"
+        android:icon="@drawable/ic_todo_name"
+        />
+
+    <item
+        android:id="@+id/nav_calendar"
+        android:title="Calendar"
+        android:icon="@drawable/ic_calendar_name"
+        />
+
+</menu>

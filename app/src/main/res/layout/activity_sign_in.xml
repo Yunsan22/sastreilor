@@ -77,7 +77,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/btn_bg"
+        android:background="@drawable/btn_bgwhite"
         android:drawableLeft="@drawable/ic_baseline_email_black"
         android:hint=" Email"
         android:paddingLeft="20dp"
@@ -107,7 +107,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/btn_bg"
+        android:background="@drawable/btn_bgwhite"
         android:drawableLeft="@drawable/ic_baseline_security_black"
         android:hint=" Password"
         android:paddingLeft="20dp"
@@ -166,6 +166,33 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Googlebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/google"
+        android:text="Sign in"
+        android:background="@drawable/btn_bgblueish"
+        app:layout_constraintEnd_toStartOf="@id/Facebookbtn"
+        app:layout_constraintTop_toBottomOf="@+id/haveaccountTexview"
+        app:layout_constraintStart_toStartOf="@id/haveaccountTexview"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Facebookbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_bgblueish"
+        android:drawableLeft="@drawable/facebookpic"
+        android:text="Sign in"
+        app:layout_constraintBottom_toBottomOf="@id/Googlebtn"
+        app:layout_constraintEnd_toEndOf="@id/createacctTexview"
+        app:layout_constraintStart_toEndOf="@id/Googlebtn"
+        app:layout_constraintTop_toTopOf="@+id/Googlebtn" />
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
