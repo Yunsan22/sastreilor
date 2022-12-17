@@ -34,7 +34,7 @@
         <activity
             android:name=".SignUpActivity"
             android:exported="false"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+            android:configChanges="keyboard|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.app.lib_name"

@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.sastreilor.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -14,12 +15,15 @@ private const val TAG = "SignUpActivity/"
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var builder: AlertDialog.Builder
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //hide action bar
         supportActionBar?.hide()
+        builder = AlertDialog.Builder(this)
 
 
 
@@ -37,8 +41,12 @@ class SignUpActivity : AppCompatActivity() {
             val emailEditText = binding.EmailEditText.text.toString()
             val pwEditText = binding.passwordEditText.text.toString()
             val confirmPwEditText = binding.repasswordEditText.text.toString()
+            val nameEditText = binding.nameEditText.text.toString()
+            val lastnameEditText = binding.lasnameEditText.text.toString()
 
-            if (emailEditText.isNotEmpty() && pwEditText.isNotEmpty() && confirmPwEditText.isNotEmpty()) {
+            if (emailEditText.isNotEmpty() && pwEditText.isNotEmpty()
+                && confirmPwEditText.isNotEmpty() && nameEditText.isNotEmpty()
+                && lastnameEditText.isNotEmpty()) {
                 if (pwEditText == confirmPwEditText){
 
                     firebaseAuth.createUserWithEmailAndPassword(emailEditText,pwEditText).addOnCompleteListener {
@@ -52,10 +60,26 @@ class SignUpActivity : AppCompatActivity() {
                     }
 
                 }else {
-                    Log.e(TAG,"Failed to create account")
-                    Toast.makeText(this,"Empty fields are not allow!!",Toast.LENGTH_SHORT).show()
+                    Log.e(TAG,"Failed to create account paswword don't match")
+                    builder.setTitle("Alert")
+                        .setMessage("passsword must match!!")
+                        .setCancelable(true)
+                        .setNegativeButton("OK"){dialogInterface, it ->
+                            dialogInterface.cancel()
+                        }
+                    builder.show()
+
+                    Toast.makeText(this,"Passwords must be the same!!",Toast.LENGTH_SHORT).show()
                 }
+            } else {
+                Log.e(TAG,"Failed to create account")
+
+                Toast.makeText(this,"Empty fields are not allow!!",Toast.LENGTH_SHORT).show()
+                builder.setTitle("Alert")
+                    .setMessage("Empty fields are not allow!!")
+                    .setCancelable(true)
             }
+
         }
     }
     fun hideSoftKeyboard(view: View) {
