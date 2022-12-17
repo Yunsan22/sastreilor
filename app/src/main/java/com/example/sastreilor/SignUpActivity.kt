@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.sastreilor.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +20,7 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
         //hide action bar
         supportActionBar?.hide()
+
 
 
         //this init Firebase
@@ -53,6 +56,13 @@ class SignUpActivity : AppCompatActivity() {
                     Toast.makeText(this,"Empty fields are not allow!!",Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+    }
+    fun hideSoftKeyboard(view: View) {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
     }
 }

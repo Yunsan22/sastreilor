@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
+    android:onClick="hideSoftKeyboard"
     tools:context=".SignInActivity">
 
     <ImageView
@@ -25,6 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+
         android:id="@+id/BrngImageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -167,13 +169,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/Googlebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/google"
         android:text="Sign in"
-        android:background="@drawable/btn_bgblueish"
+        android:backgroundTint="@color/babyblue"
         app:layout_constraintEnd_toStartOf="@id/Facebookbtn"
         app:layout_constraintTop_toBottomOf="@+id/haveaccountTexview"
         app:layout_constraintStart_toStartOf="@id/haveaccountTexview"

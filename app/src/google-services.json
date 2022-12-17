@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1051310845705",
+    "project_id": "sastreilor",
+    "storage_bucket": "sastreilor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051310845705:android:fce1f8cc828fa4418fedd8",
+        "android_client_info": {
+          "package_name": "com.example.sastreilor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051310845705-j188ou7r55bm9q269acgatgjefio4cqf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sastreilor",
+            "certificate_hash": "83388d411718849d4a96e00d0886c43a6ce094f4"
+          }
+        },
+        {
+          "client_id": "1051310845705-cfaqg4thkoss1oaeorrso9gd8j76mag1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVxthq05sBtNYnqxjkD1l6i_gDGsutPWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1051310845705-cfaqg4thkoss1oaeorrso9gd8j76mag1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1051310845705-1nt2vuqoo8ppq7tgtiufftsqd1qle32p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yunsan22.sastreilor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
