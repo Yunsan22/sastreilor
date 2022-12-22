@@ -65,7 +65,7 @@
         <EditText
             android:id="@+id/nameEditText"
             android:layout_width="330dp"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_bgwhite"
             android:drawableLeft="@drawable/ic_baseline_email_black"
@@ -92,7 +92,7 @@
         <EditText
             android:id="@+id/lasnameEditText"
             android:layout_width="330dp"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_bgwhite"
             android:drawableLeft="@drawable/ic_baseline_email_black"
@@ -122,7 +122,7 @@
         <EditText
             android:id="@+id/EmailEditText"
             android:layout_width="330dp"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_bgwhite"
             android:drawableLeft="@drawable/ic_baseline_email_black"
@@ -151,7 +151,7 @@
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="331dp"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_bgwhite"
             android:drawableLeft="@drawable/ic_baseline_security_black"
@@ -180,7 +180,7 @@
         <EditText
             android:id="@+id/repasswordEditText"
             android:layout_width="331dp"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_bgwhite"
             android:drawableLeft="@drawable/ic_baseline_security_black"
@@ -194,19 +194,32 @@
             app:layout_constraintStart_toStartOf="@+id/passwordTexview"
             app:layout_constraintTop_toBottomOf="@+id/passwordTexview" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/registerBtn"
-            android:layout_width="325dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rectangle_8"
-            android:backgroundTint="#B3C7F8"
-            android:text="Register"
-            app:layout_constraintEnd_toEndOf="@+id/passwordEditText"
-            app:layout_constraintStart_toStartOf="@+id/passwordEditText"
-            app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+
 
     </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/registerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/babyblue"
+        android:text="Register"
+        app:circularflow_radiusInDP="25"
+        app:layout_constraintEnd_toStartOf="@id/verifiedEmailBtn"
+        app:layout_constraintStart_toStartOf="@+id/LLregister"
+        app:layout_constraintTop_toBottomOf="@+id/LLregister" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/verifiedEmailBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/babyblue"
+        android:text="Verify email"
+        app:layout_constraintBottom_toBottomOf="@+id/registerBtn"
+        app:layout_constraintEnd_toEndOf="@+id/LLregister"
+        app:layout_constraintStart_toEndOf="@id/registerBtn"
+        app:layout_constraintTop_toTopOf="@+id/registerBtn"/>
     <TextView
         android:id="@+id/haveaccountTexview"
         android:layout_width="wrap_content"
@@ -217,7 +230,7 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@id/signinTexview"
         app:layout_constraintStart_toStartOf="@+id/LLregister"
-        app:layout_constraintTop_toBottomOf="@+id/LLregister" />
+        app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
 
     <TextView
         android:id="@+id/signinTexview"

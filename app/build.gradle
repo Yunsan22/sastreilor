@@ -9,6 +9,10 @@ plugins {
 
 }
 
+def apikeyPropertiesFile = rootProject.file("local.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
 android {
     namespace 'com.example.sastreilor'
     compileSdk 33
@@ -21,6 +25,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_KEY", apikeyProperties['API_KEY'])
     }
 
     buildTypes {

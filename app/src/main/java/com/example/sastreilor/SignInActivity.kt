@@ -8,6 +8,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import com.example.sastreilor.databinding.ActivitySignInBinding
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -22,6 +23,7 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var  googleSigninClient: GoogleSignInClient
+    private lateinit var builder: AlertDialog.Builder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,7 @@ class SignInActivity : AppCompatActivity() {
 
         //hide action bar
         supportActionBar?.hide()
+        builder = AlertDialog.Builder(this)
 
         //this init Firebase
         firebaseAuth = FirebaseAuth.getInstance()
@@ -103,6 +106,7 @@ class SignInActivity : AppCompatActivity() {
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful){
                 val intent = Intent(this,MainActivity::class.java)
+                //trying to pass info
                 intent.putExtra("email", account.email)
                 intent.putExtra("name",account.displayName)
                 startActivity((intent))
@@ -129,10 +133,26 @@ class SignInActivity : AppCompatActivity() {
                     startActivity(intent)
                     Toast.makeText(this, "Welcome" + emailEditText, Toast.LENGTH_SHORT).show()
                 }else {
-                    Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+
+                    print(it.exception.toString())
+                    builder.setTitle("Alert")
+                        .setMessage(it.exception.toString())
+                        .setCancelable(true)
+                        .setNegativeButton("OK"){dialogInterface, it ->
+                            dialogInterface.cancel()
+                        }
+                    builder.show()
                 }
             }
         } else {
+            builder.setTitle("Alert")
+                .setMessage("Empty fields are not allow!!")
+                .setCancelable(true)
+                .setNegativeButton("OK"){dialogInterface, it ->
+                    dialogInterface.cancel()
+                }
+            builder.show()
+
             Toast.makeText(this, "Empty Fields are not allow", Toast.LENGTH_SHORT).show()
         }
     }
