@@ -129,9 +129,29 @@ class SignInActivity : AppCompatActivity() {
 
             firebaseAuth.signInWithEmailAndPassword(emailEditText,pwEditText).addOnCompleteListener {
                 if (it.isSuccessful){
-                    val intent = Intent(this,MainActivity::class.java)
-                    startActivity(intent)
-                    Toast.makeText(this, "Welcome" + emailEditText, Toast.LENGTH_SHORT).show()
+                    val emailIsVerified = firebaseAuth.currentUser?.isEmailVerified
+
+                    if (emailIsVerified == true){
+                        builder.setTitle("Welcome")
+                            .setMessage("Hello ${emailEditText}")
+                            .setCancelable(true)
+                            .setNegativeButton("OK"){dialogInterface, it ->
+                                val intent = Intent(this,MainActivity::class.java)
+                                startActivity(intent)
+                            }
+                        builder.show()
+
+//                        Toast.makeText(this, "Welcome" + emailEditText, Toast.LENGTH_SHORT).show()
+                    } else {
+                        builder.setTitle("Error")
+                            .setMessage("Please verify your email")
+                            .setCancelable(true)
+                            .setNegativeButton("OK"){dialogInterface, it ->
+                                dialogInterface.cancel()
+                            }
+                        builder.show()
+                    }
+
                 }else {
 
                     print(it.exception.toString())
@@ -159,7 +179,8 @@ class SignInActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if(firebaseAuth.currentUser != null ) {
+        val emailIsVerified = firebaseAuth.currentUser?.isEmailVerified
+        if(emailIsVerified == true ) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

@@ -68,12 +68,15 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         binding.verifiedEmailBtn.setOnClickListener {
+            val emailEditText = binding.EmailEditText.text.toString()
+
+            firebaseAuth
 //            val emailEditText = binding.EmailEditText.text.toString()
 //            validateEmailAddres(emailEditText)
         }
 
         //this btn create an user account and adds it to firebase DataBase
-        binding.registerBtn.setOnClickListener {
+        binding.registerBtn.setOnClickListener { task ->
             //check for credentials
             val emailEditText = binding.EmailEditText.text.toString()
             val pwEditText = binding.passwordEditText.text.toString()
@@ -95,22 +98,35 @@ class SignUpActivity : AppCompatActivity() {
 
                 if (pwEditText == confirmPwEditText){
 
-                    firebaseAuth.createUserWithEmailAndPassword(emailEditText,pwEditText).addOnCompleteListener {
-                        if (it.isSuccessful){
-                            val intent = Intent(this,SignInActivity::class.java)
-                            startActivity(intent)
-                            Toast.makeText(this, "Account registered succesfully", Toast.LENGTH_SHORT).show()
-                            builder.setTitle("Welcome")
-                                .setMessage("Account registered succesfully")
-                                .setCancelable(true)
-                                .setNegativeButton("OK"){dialogInterface, it ->
-                                    dialogInterface.cancel()
+                    firebaseAuth.createUserWithEmailAndPassword(emailEditText,pwEditText).addOnCompleteListener(this) {task ->
+                        if (task.isSuccessful){
+                            firebaseAuth.currentUser?.sendEmailVerification()
+                                ?.addOnSuccessListener {
+                                    builder.setTitle("WELCOME")
+                                        .setMessage("An email was sent, Please Verify Email")
+                                        .setCancelable(true)
+                                        .setNegativeButton("OK"){dialogInterface, it ->
+                                            val intent = Intent(this,SignInActivity::class.java)
+                                            startActivity(intent)
+                                        }
+                                    builder.show()
                                 }
-                            builder.show()
+                                ?.addOnFailureListener {
+                                    builder.setTitle("Alert")
+                                        .setMessage(it.toString())
+                                        .setCancelable(true)
+                                        .setNegativeButton("OK"){dialogInterface, it ->
+                                            dialogInterface.cancel()
+                                        }
+                                    builder.show()
+                                }
+
+//                            Toast.makeText(this, "Account registered succesfully,Account must be verified before Login", Toast.LENGTH_SHORT).show()
+
                         } else {
-                            Toast.makeText(this,it.exception.toString(),Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this,task.exception.toString(),Toast.LENGTH_SHORT).show()
                             builder.setTitle("Alert")
-                                .setMessage(it.exception.toString())
+                                .setMessage(task.exception.toString())
                                 .setCancelable(true)
                                 .setNegativeButton("OK"){dialogInterface, it ->
                                     dialogInterface.cancel()
