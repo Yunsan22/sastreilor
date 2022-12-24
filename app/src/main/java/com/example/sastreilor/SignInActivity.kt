@@ -69,9 +69,9 @@ class SignInActivity : AppCompatActivity() {
         binding.Googlebtn.setOnClickListener {
             googleSignIn()
         }
-        binding.Facebookbtn.setOnClickListener {
-            facebookSignin()
-        }
+//        binding.Facebookbtn.setOnClickListener {
+//            facebookSignin()
+//        }
 
     }
 

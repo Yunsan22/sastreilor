@@ -176,22 +176,22 @@
         android:drawableLeft="@drawable/google"
         android:text="Sign in"
         android:backgroundTint="@color/babyblue"
-        app:layout_constraintEnd_toStartOf="@id/Facebookbtn"
+        app:layout_constraintEnd_toEndOf="@id/createacctTexview"
         app:layout_constraintTop_toBottomOf="@+id/haveaccountTexview"
         app:layout_constraintStart_toStartOf="@id/haveaccountTexview"
         />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/Facebookbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_bgblueish"
-        android:drawableLeft="@drawable/facebookpic"
-        android:text="Sign in"
-        app:layout_constraintBottom_toBottomOf="@id/Googlebtn"
-        app:layout_constraintEnd_toEndOf="@id/createacctTexview"
-        app:layout_constraintStart_toEndOf="@id/Googlebtn"
-        app:layout_constraintTop_toTopOf="@+id/Googlebtn" />
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/Facebookbtn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/btn_bgblueish"-->
+<!--        android:drawableLeft="@drawable/facebookpic"-->
+<!--        android:text="Sign in"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/Googlebtn"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/createacctTexview"-->
+<!--        app:layout_constraintStart_toEndOf="@id/Googlebtn"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/Googlebtn" />-->
 
 
 

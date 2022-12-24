@@ -52,7 +52,7 @@ class SignUpActivity : AppCompatActivity() {
                 before: Int, count: Int
             ) {
                 if (Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    emailedit.error = "email is good"
+                    emailedit.error = null
 
                 }else {
                     emailedit.error = "invalid Email"
@@ -67,13 +67,6 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.verifiedEmailBtn.setOnClickListener {
-            val emailEditText = binding.EmailEditText.text.toString()
-
-            firebaseAuth
-//            val emailEditText = binding.EmailEditText.text.toString()
-//            validateEmailAddres(emailEditText)
-        }
 
         //this btn create an user account and adds it to firebase DataBase
         binding.registerBtn.setOnClickListener { task ->
@@ -96,57 +89,71 @@ class SignUpActivity : AppCompatActivity() {
                 && lastnameEditText.isNotEmpty()) {
 
 
-                if (pwEditText == confirmPwEditText){
+                    if (pwEditText == confirmPwEditText){
 
-                    firebaseAuth.createUserWithEmailAndPassword(emailEditText,pwEditText).addOnCompleteListener(this) {task ->
-                        if (task.isSuccessful){
-                            firebaseAuth.currentUser?.sendEmailVerification()
-                                ?.addOnSuccessListener {
-                                    builder.setTitle("WELCOME")
-                                        .setMessage("An email was sent, Please Verify Email")
-                                        .setCancelable(true)
-                                        .setNegativeButton("OK"){dialogInterface, it ->
-                                            val intent = Intent(this,SignInActivity::class.java)
-                                            startActivity(intent)
+                        if (isPasswordValid(pwEditText)){
+
+                            firebaseAuth.createUserWithEmailAndPassword(emailEditText,pwEditText).addOnCompleteListener(this) {task ->
+                                if (task.isSuccessful){
+                                    firebaseAuth.currentUser?.sendEmailVerification()
+                                        ?.addOnSuccessListener {
+                                            builder.setTitle("WELCOME")
+                                                .setMessage("An email was sent, Please Verify Email")
+                                                .setCancelable(true)
+                                                .setNegativeButton("OK"){dialogInterface, it ->
+                                                    val intent = Intent(this,SignInActivity::class.java)
+                                                    startActivity(intent)
+                                                }
+                                            builder.show()
                                         }
-                                    builder.show()
-                                }
-                                ?.addOnFailureListener {
+                                        ?.addOnFailureListener {
+                                            builder.setTitle("Alert")
+                                                .setMessage(it.toString())
+                                                .setCancelable(true)
+                                                .setNegativeButton("OK"){dialogInterface, it ->
+                                                    dialogInterface.cancel()
+                                                }
+                                            builder.show()
+                                        }
+
+//                            Toast.makeText(this, "Account registered succesfully,Account must be verified before Login", Toast.LENGTH_SHORT).show()
+
+                                } else {
+                                    Toast.makeText(this,task.exception.toString(),Toast.LENGTH_SHORT).show()
                                     builder.setTitle("Alert")
-                                        .setMessage(it.toString())
+                                        .setMessage(task.exception.toString())
                                         .setCancelable(true)
                                         .setNegativeButton("OK"){dialogInterface, it ->
                                             dialogInterface.cancel()
                                         }
                                     builder.show()
                                 }
+                            }
 
-//                            Toast.makeText(this, "Account registered succesfully,Account must be verified before Login", Toast.LENGTH_SHORT).show()
 
                         } else {
-                            Toast.makeText(this,task.exception.toString(),Toast.LENGTH_SHORT).show()
-                            builder.setTitle("Alert")
-                                .setMessage(task.exception.toString())
+                            builder.setTitle("Error")
+                                .setMessage("Password is not secure")
                                 .setCancelable(true)
                                 .setNegativeButton("OK"){dialogInterface, it ->
                                     dialogInterface.cancel()
                                 }
                             builder.show()
                         }
+
+
+                    }else {
+                        Log.e(TAG,"Failed to create account paswword don't match")
+                        builder.setTitle("Alert")
+                            .setMessage("passwors do not match!!")
+                            .setCancelable(true)
+                            .setNegativeButton("OK"){dialogInterface, it ->
+                                dialogInterface.cancel()
+                            }
+                        builder.show()
+
+                        Toast.makeText(this,"Passwords must be the same!!",Toast.LENGTH_SHORT).show()
                     }
-
-                }else {
-                    Log.e(TAG,"Failed to create account paswword don't match")
-                    builder.setTitle("Alert")
-                        .setMessage("passwors do not match!!")
-                        .setCancelable(true)
-                        .setNegativeButton("OK"){dialogInterface, it ->
-                            dialogInterface.cancel()
-                        }
-                    builder.show()
-
-                    Toast.makeText(this,"Passwords must be the same!!",Toast.LENGTH_SHORT).show()
-                }
 
             } else {
                 Log.e(TAG,"Failed to create account")
@@ -166,6 +173,17 @@ class SignUpActivity : AppCompatActivity() {
 
         }
     }
+
+    fun isPasswordValid(password:String): Boolean {
+        if (password.length < 8) return false
+        if (password.firstOrNull { it.isDigit() } == null) return false
+        if (password.filter { it.isLetter() }.firstOrNull { it.isUpperCase() } == null) return false
+        if (password.filter { it.isLetter() }.firstOrNull { it.isLowerCase() } == null) return false
+        if (password.firstOrNull { !it.isLetterOrDigit() } == null) return false
+
+        return true
+    }
+
     fun validateEmailAddres(email: String): Boolean {
 //     val emailinput = email.text.toString()
 

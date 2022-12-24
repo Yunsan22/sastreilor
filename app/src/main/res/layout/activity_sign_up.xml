@@ -204,22 +204,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/babyblue"
-        android:text="Register"
+        android:text="Verify Email and Register"
         app:circularflow_radiusInDP="25"
-        app:layout_constraintEnd_toStartOf="@id/verifiedEmailBtn"
+        app:layout_constraintEnd_toEndOf="@id/LLregister"
         app:layout_constraintStart_toStartOf="@+id/LLregister"
         app:layout_constraintTop_toBottomOf="@+id/LLregister" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/verifiedEmailBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/babyblue"
-        android:text="Verify email"
-        app:layout_constraintBottom_toBottomOf="@+id/registerBtn"
-        app:layout_constraintEnd_toEndOf="@+id/LLregister"
-        app:layout_constraintStart_toEndOf="@id/registerBtn"
-        app:layout_constraintTop_toTopOf="@+id/registerBtn"/>
     <TextView
         android:id="@+id/haveaccountTexview"
         android:layout_width="wrap_content"
