@@ -1,6 +1,9 @@
 package com.example.sastreilor
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.Color.red
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PatternMatcher
@@ -31,34 +34,54 @@ class SignUpActivity : AppCompatActivity() {
         supportActionBar?.hide()
         builder = AlertDialog.Builder(this)
 
-        binding.EmailEditText.addTextChangedListener(object : TextWatcher {
-            val email = binding.EmailEditText.text.toString()
-            val emailedit = binding.EmailEditText
-            override fun afterTextChanged(s: Editable) {
-                if (Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    emailedit.setError("email is good")
-
-                }
-            }
-
-            override fun beforeTextChanged(
-                s: CharSequence, start: Int,
-                count: Int, after: Int
-            ) {
-            }
-
-            override fun onTextChanged(
-                s: CharSequence, start: Int,
-                before: Int, count: Int
-            ) {
-                if (Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    emailedit.error = null
-
-                }else {
-                    emailedit.error = "invalid Email"
-                }
-            }
-        })
+//        binding.EmailET.addTextChangedListener(object : TextWatcher {
+//            val email = binding.EmailET.text.toString()
+//            val emailedit = binding.EmailET
+//            override fun afterTextChanged(s: Editable) {
+//                if (Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+//                    emailedit.setError("email is good")
+//
+//                }
+//            }
+//
+//            override fun beforeTextChanged(
+//                s: CharSequence, start: Int,
+//                count: Int, after: Int
+//            ) {
+//            }
+//
+//            override fun onTextChanged(
+//                s: CharSequence, start: Int,
+//                before: Int, count: Int
+//            ) {
+//                if (Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+//                    emailedit.error = null
+//
+//                }else {
+//                    emailedit.error = "invalid Email"
+//                }
+//            }
+//        })
+//        binding.passwordEditText.addTextChangedListener(object : TextWatcher {
+//            val password = binding.passwordEditText.text.toString()
+//            val passwordedit = binding.passwordEditText
+//            override fun afterTextChanged(s: Editable) {
+//
+//            }
+//
+//            override fun beforeTextChanged(
+//                s: CharSequence, start: Int,
+//                count: Int, after: Int
+//            ) {
+//            }
+//
+//            override fun onTextChanged(
+//                s: CharSequence, start: Int,
+//                before: Int, count: Int
+//            ) {
+//                tisPasswordValid(password)
+//            }
+//        } )
         //this init Firebase
         firebaseAuth = FirebaseAuth.getInstance()
         // the below textview sends the user to sign in activity
@@ -71,7 +94,7 @@ class SignUpActivity : AppCompatActivity() {
         //this btn create an user account and adds it to firebase DataBase
         binding.registerBtn.setOnClickListener { task ->
             //check for credentials
-            val emailEditText = binding.EmailEditText.text.toString()
+            val emailEditText = binding.EmailET.text.toString()
             val pwEditText = binding.passwordEditText.text.toString()
             val confirmPwEditText = binding.repasswordEditText.text.toString()
             val nameEditText = binding.nameEditText.text.toString()
@@ -173,9 +196,54 @@ class SignUpActivity : AppCompatActivity() {
 
         }
     }
+//    fun tisPasswordValid(password:String) {
+//
+//        while (password.length >= 8) {
+//
+//            if (isPasswordValid(password)){
+//                binding.passwordTiLayout.helperText = "Password is Strong enough"
+//                             binding.passwordTiLayout.error = ""
+//            } else {
+//                binding.passwordTiLayout.helperText = "Password is weak"
+//                             binding.passwordTiLayout.error = ""
+//            }
+////            if (password.firstOrNull { it.isDigit() } == null) {
+////                if (password.filter { it.isLetter() }.firstOrNull { it.isUpperCase() } == null){
+////                    if (password.filter { it.isLetter() }.firstOrNull { it.isLowerCase() } == null){
+////                         if (password.firstOrNull { !it.isLetterOrDigit() } == null){
+////                             binding.passwordTiLayout.helperText = "Password is Strong enough"
+////                             binding.passwordTiLayout.error = ""
+////                         } else {
+////                             binding.passwordTiLayout.helperText = "Password must have special characters"
+////                             binding.passwordTiLayout.error = ""
+////                         }
+////                    }else {
+////                        binding.passwordTiLayout.helperText = "Password must have Lowercase letters"
+////                        binding.passwordTiLayout.error = ""
+////
+////                    }
+////                }else {
+////                    binding.passwordTiLayout.helperText = "Password must have Uppercase letters"
+////                    binding.passwordTiLayout.error = ""
+////                }
+////
+////            } else {
+////                binding.passwordTiLayout.helperText = "Password must have digits"
+////                binding.passwordTiLayout.error = ""
+////                        }
+//
+//        }
+//        if (password.length < 8) {
+////            binding.passwordTiLayout.setHelperTextColor(ColorStateList(Color))
+//            binding.passwordTiLayout.helperText = "Password must be at least 8 charaters"
+//            binding.passwordTiLayout.error = ""
+//        }
+//
+//
+//    }
 
     fun isPasswordValid(password:String): Boolean {
-        if (password.length < 8) return false
+//        if (password.length < 8) return  false
         if (password.firstOrNull { it.isDigit() } == null) return false
         if (password.filter { it.isLetter() }.firstOrNull { it.isUpperCase() } == null) return false
         if (password.filter { it.isLetter() }.firstOrNull { it.isLowerCase() } == null) return false

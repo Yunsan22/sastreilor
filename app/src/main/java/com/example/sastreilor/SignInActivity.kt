@@ -121,7 +121,7 @@ class SignInActivity : AppCompatActivity() {
     }
 
     fun handleSignin(){
-        val emailEditText = binding.EmailEditText.text.toString()
+        val emailEditText = binding.EmailET.text.toString()
         val pwEditText = binding.passwordEditText.text.toString()
 
 
