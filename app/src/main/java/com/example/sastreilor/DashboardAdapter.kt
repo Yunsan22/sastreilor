@@ -12,10 +12,11 @@ class DashboardAdapter(private val context: Context) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         if (viewType == 0){
-            val view = LayoutInflater.from(context).inflate(R.layout.dashboard_item,parent,false)
+            val view = LayoutInflater.from(context).inflate(R.layout.dasboard_item_scrollable,parent,false)
+
             return ViewHolder(view)
         }else if (viewType == 1){
-            val view = LayoutInflater.from(context).inflate(R.layout.dasboard_item_scrollable,parent,false)
+            val view = LayoutInflater.from(context).inflate(R.layout.dashboard_item,parent,false)
             return ViewHolder(view)
         } else if (viewType == 2){
             val view = LayoutInflater.from(context).inflate(R.layout.dasboard_item_delivered,parent,false)
