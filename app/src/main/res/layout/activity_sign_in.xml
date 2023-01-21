@@ -108,8 +108,6 @@
         app:boxCornerRadiusTopEnd="@dimen/btnDimen"
         app:boxCornerRadiusTopStart="@dimen/btnDimen"
         app:boxStrokeColor="#FFFEFE"
-        app:counterEnabled="true"
-        app:counterMaxLength="10"
         app:endIconMode="password_toggle"
         app:endIconTint="#070505"
         app:placeholderTextColor="@color/white"

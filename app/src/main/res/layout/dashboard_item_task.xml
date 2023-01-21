@@ -23,17 +23,18 @@
             android:layout_width="match_parent"
             android:layout_height="93dp">
 
+
             <ImageView
                 android:id="@+id/deliverIM"
-                android:layout_width="42dp"
-                android:layout_height="41dp"
-                android:background="@drawable/ic_stat_name"
-                app:layout_constraintBottom_toBottomOf="@+id/takemeasurmentsTV"
-                app:layout_constraintEnd_toStartOf="@+id/takemeasurmentsTV"
-                app:layout_constraintTop_toTopOf="@+id/takemeasurmentsTV" />
+                android:layout_width="55dp"
+                android:layout_height="56dp"
+                android:background="@drawable/ic_google_name"
+                app:layout_constraintBottom_toBottomOf="@+id/CreateTaskTV"
+                app:layout_constraintEnd_toStartOf="@+id/CreateTaskTV"
+                app:layout_constraintTop_toTopOf="@+id/CreateTaskTV" />
 
             <TextView
-                android:id="@+id/takemeasurmentsTV"
+                android:id="@+id/CreateTaskTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -41,7 +42,7 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"
-                android:text="Take Measurements"
+                android:text="Make task"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/black"
                 android:textSize="24sp"

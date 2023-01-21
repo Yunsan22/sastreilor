@@ -6,11 +6,29 @@
     android:background="@color/black"
     tools:context=".Measurements_list_Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textColor="@color/white"
-        android:text="@string/hello_blankmeas_fragment" />
+        android:textAlignment="center"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/Measurements_recycler_view"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    </RelativeLayout>
 
 </FrameLayout>

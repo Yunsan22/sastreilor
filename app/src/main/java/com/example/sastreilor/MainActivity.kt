@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         val email =intent.getStringExtra("email")
         val displayName = intent.getStringExtra("name")
 
-       findViewById<TextView>(R.id.randomTV).text = email + "\n" + displayName
 
         //defining fragments
         val dashboardFragment: Fragment = DashboardFragment()

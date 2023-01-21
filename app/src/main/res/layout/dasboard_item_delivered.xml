@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -25,15 +24,15 @@
 
             <ImageView
                 android:id="@+id/deliverIM"
-                android:layout_width="42dp"
-                android:layout_height="41dp"
-                android:background="@drawable/ic_stat_name"
-                app:layout_constraintBottom_toBottomOf="@+id/takemeasurmentsTV"
-                app:layout_constraintEnd_toStartOf="@+id/takemeasurmentsTV"
-                app:layout_constraintTop_toTopOf="@+id/takemeasurmentsTV" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_18"
+                app:layout_constraintBottom_toBottomOf="@+id/DeliveredTV"
+                app:layout_constraintEnd_toStartOf="@+id/DeliveredTV"
+                app:layout_constraintTop_toTopOf="@+id/DeliveredTV" />
 
             <TextView
-                android:id="@+id/takemeasurmentsTV"
+                android:id="@+id/DeliveredTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -41,7 +40,7 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"
-                android:text="Take Measurements"
+                android:text="Delivered"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/black"
                 android:textSize="24sp"

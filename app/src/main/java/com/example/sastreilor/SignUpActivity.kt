@@ -19,12 +19,15 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import com.example.sastreilor.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 private const val TAG = "SignUpActivity/"
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var builder: AlertDialog.Builder
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +37,7 @@ class SignUpActivity : AppCompatActivity() {
         supportActionBar?.hide()
         builder = AlertDialog.Builder(this)
 
+        val db = Firebase.firestore
 //        binding.EmailET.addTextChangedListener(object : TextWatcher {
 //            val email = binding.EmailET.text.toString()
 //            val emailedit = binding.EmailET
@@ -118,16 +122,37 @@ class SignUpActivity : AppCompatActivity() {
 
                             firebaseAuth.createUserWithEmailAndPassword(emailEditText,pwEditText).addOnCompleteListener(this) {task ->
                                 if (task.isSuccessful){
+
                                     firebaseAuth.currentUser?.sendEmailVerification()
                                         ?.addOnSuccessListener {
-                                            builder.setTitle("WELCOME")
-                                                .setMessage("An email was sent, Please Verify Email")
-                                                .setCancelable(true)
-                                                .setNegativeButton("OK"){dialogInterface, it ->
-                                                    val intent = Intent(this,SignInActivity::class.java)
-                                                    startActivity(intent)
+                                            val db = Firebase.firestore
+                                            val uid = firebaseAuth.currentUser!!.uid
+
+                                            val values =  hashMapOf(
+                                                "firstName" to nameEditText,
+                                                "lasName" to lastnameEditText,
+                                                "email" to emailEditText,
+                                                "uid" to uid
+                                            )
+
+                                            db.collection("Users").document(uid)
+                                                .set(values)
+                                                .addOnSuccessListener {
+                                                    binding.progress.visibility = View.VISIBLE
+                                                    builder.setTitle("WELCOME")
+                                                        .setMessage("An email was sent, Please Verify Email")
+                                                        .setCancelable(true)
+                                                        .setNegativeButton("OK"){dialogInterface, it ->
+                                                            val intent = Intent(this,SignInActivity::class.java)
+                                                            startActivity(intent)
+                                                        }
+                                                    builder.show()
+                                                    Log.d(TAG, "DocumentSnapshot successfully written!")
                                                 }
-                                            builder.show()
+                                                .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e)
+                                                    binding.progress.visibility = View.GONE
+                                                }
+
                                         }
                                         ?.addOnFailureListener {
                                             builder.setTitle("Alert")
@@ -152,6 +177,7 @@ class SignUpActivity : AppCompatActivity() {
                                     builder.show()
                                 }
                             }
+
 
 
                         } else {
